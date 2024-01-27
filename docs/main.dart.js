@@ -80156,7 +80156,7 @@ h=[400*d/(d+27.13),400*c/(c+27.13),400*i/(i+27.13)]
 return new A.a7d(l,(40*h[0]+20*h[1]+h[2])/20*k,k,k,a1,1,q,m,A.CB(m,0.25),1.48+e)})
 s($,"aEn","aqn",()=>{var q=null,p=t.yo,o=A.a([A.agG(q,new A.a3_(),"/"),A.agG(q,new A.a30(),"/characters/:name")],p),n=A.auM(q,t.uK)
 p=A.a([new A.nU(new A.a31(),n,o,q)],p)
-return A.auP(!1,q,q,q,q,"/",q,q,q,!1,q,!0,q,!1,new A.Ka(new A.a2Y(p,A.aD0(),5)))})
+return A.auP(!1,q,q,q,q,"/Wuthering_Waves_Wiki/",q,q,q,!1,q,!0,q,!1,new A.Ka(new A.a2Y(p,A.aD0(),5)))})
 s($,"aEH","aqz",()=>A.r1(null,A.ajL(B.O,B.kW),B.H_,B.xb,B.xf,null))
 s($,"aEG","aqy",()=>A.r1(null,A.ajL(B.V,B.kS),B.GZ,B.xb,B.xf,null))})();(function nativeSupport(){!function(){var s=function(a){var m={}
 m[a]=1
@@ -80200,4 +80200,3 @@ a(b.target)}for(var r=0;r<s.length;++r)s[r].addEventListener("load",onLoad,false
 var s=A.afr
 if(typeof dartMainRunner==="function")dartMainRunner(s,[])
 else s([])})})()
-//# sourceMappingURL=main.dart.js.map
