@@ -22,6 +22,22 @@ class Theme {
     navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: Color(0xFFC4AC7D),
     ),
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(
+        color: Colors.white,
+      ),
+      bodyMedium: TextStyle(
+        color: Colors.white,
+      ),
+      bodySmall: TextStyle(
+        color: Colors.white,
+      ),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Colors.yellow,
+      selectionColor: Colors.green,
+      selectionHandleColor: Colors.blue,
+    ),
   );
 
   static final dark = ThemeData(
@@ -31,6 +47,22 @@ class Theme {
     ),
     navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: Color(0xFF3B3426),
+    ),
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(
+        color: Colors.white,
+      ),
+      bodyMedium: TextStyle(
+        color: Colors.white,
+      ),
+      bodySmall: TextStyle(
+        color: Colors.white,
+      ),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Colors.yellow,
+      selectionColor: Colors.green,
+      selectionHandleColor: Colors.blue,
     ),
   );
 }
