@@ -12,7 +12,7 @@ class Routing {
   ];
 
   static final router = GoRouter(
-    initialLocation: '/Wuthering_Waves_Wiki/',
+    initialLocation: '/',
     routes: [
       ShellRoute(
         routes: [
