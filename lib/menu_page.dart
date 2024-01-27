@@ -26,15 +26,19 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
-    final selectedPage = widget.allRoutes.indexOf(widget.uri.path);
+    final notHaveSelectedpage = !widget.allRoutes.contains(widget.uri.path);
+    int selectedPage = widget.allRoutes.indexOf(widget.uri.path);
+    if (notHaveSelectedpage) selectedPage = widget.allRoutes.length;
 
     return Utils.isMobileDevice(context)
         ? MenuMobilePage(
+            notHaveSelectedPage: notHaveSelectedpage,
             selectedPage: selectedPage,
             allRoutes: widget.allRoutes,
             child: widget.child,
           )
         : MenuDesktopPage(
+            notHaveSelectedPage: notHaveSelectedpage,
             selectedPage: selectedPage,
             allRoutes: widget.allRoutes,
             child: widget.child,
@@ -44,12 +48,14 @@ class _MenuPageState extends State<MenuPage> {
 
 class MenuDesktopPage extends StatefulWidget {
   const MenuDesktopPage({
+    required this.notHaveSelectedPage,
     required this.selectedPage,
     required this.allRoutes,
     required this.child,
     super.key,
   });
 
+  final bool notHaveSelectedPage;
   final int selectedPage;
   final List<String> allRoutes;
   final Widget child;
@@ -83,21 +89,26 @@ class _MenuDesktopPageState extends State<MenuDesktopPage> {
             NavigationRail(
               selectedIndex: widget.selectedPage,
               onDestinationSelected: (int index) {
+                if (widget.allRoutes[index] == '/characters/:name') {
+                  context.go('/characters/test');
+                  return;
+                }
                 context.go(widget.allRoutes[index]);
               },
-              destinations: const [
-                NavigationRailDestination(
+              destinations: [
+                const NavigationRailDestination(
                   icon: Icon(Icons.abc),
                   label: Text('index page'),
                 ),
-                NavigationRailDestination(
+                const NavigationRailDestination(
                   icon: Icon(Icons.abc),
-                  label: Text('super page'),
+                  label: Text('character page'),
                 ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.abc),
-                  label: Text('lot of content'),
-                ),
+                if (widget.notHaveSelectedPage)
+                  const NavigationRailDestination(
+                    icon: Icon(Icons.more_horiz),
+                    label: Text('other'),
+                  ),
               ],
             ),
             Expanded(
@@ -113,12 +124,14 @@ class _MenuDesktopPageState extends State<MenuDesktopPage> {
 //The menu for a mobile page
 class MenuMobilePage extends StatefulWidget {
   const MenuMobilePage({
+    required this.notHaveSelectedPage,
     required this.selectedPage,
     required this.allRoutes,
     required this.child,
     super.key,
   });
 
+  final bool notHaveSelectedPage;
   final int selectedPage;
   final List<String> allRoutes;
   final Widget child;
@@ -138,21 +151,26 @@ class _MenuMobilePageState extends State<MenuMobilePage> {
         NavigationBar(
           selectedIndex: widget.selectedPage,
           onDestinationSelected: (int index) {
+            if (widget.allRoutes[index] == '/characters/:name') {
+              context.go('/characters/test');
+              return;
+            }
             context.go(widget.allRoutes[index]);
           },
-          destinations: const [
-            NavigationDestination(
+          destinations: [
+            const NavigationDestination(
               icon: Icon(Icons.abc),
               label: 'index page',
             ),
-            NavigationDestination(
+            const NavigationDestination(
               icon: Icon(Icons.abc),
-              label: 'super page',
+              label: 'character page',
             ),
-            NavigationDestination(
-              icon: Icon(Icons.abc),
-              label: 'lot of content',
-            ),
+            if (widget.notHaveSelectedPage)
+              const NavigationDestination(
+                icon: Icon(Icons.more_horiz),
+                label: 'other',
+              ),
           ],
         ),
       ],

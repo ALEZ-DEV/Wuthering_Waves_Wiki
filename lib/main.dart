@@ -22,6 +22,7 @@ class WutheringWavesApp extends StatelessWidget {
       themeMode: WutheringWaves.Theme.currentMode,
       theme: WutheringWaves.Theme.light,
       darkTheme: WutheringWaves.Theme.dark,
+      title: 'test',
     );
   }
 }

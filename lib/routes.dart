@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:wuthering_waves_wiki/pages/index_page.dart';
 import 'menu_page.dart';
+import './pages/index_page.dart';
+import './pages/character_page.dart';
 
 class Routing {
   static const allRoutes = [
     IndexPage.route,
-    SuperPage.route,
-    LotOfContentPage.route,
+    CharacterPage.route,
   ];
 
   static final router = GoRouter(
@@ -24,19 +24,13 @@ class Routing {
             ),
           ),
           GoRoute(
-            path: SuperPage.route,
+            path: CharacterPage.route,
             pageBuilder: (context, state) => buildPage(
               context,
               state,
-              const SuperPage(),
-            ),
-          ),
-          GoRoute(
-            path: LotOfContentPage.route,
-            pageBuilder: (context, state) => buildPage(
-              context,
-              state,
-              LotOfContentPage(),
+              CharacterPage(
+                characterName: state.pathParameters['name'],
+              ),
             ),
           ),
         ],
