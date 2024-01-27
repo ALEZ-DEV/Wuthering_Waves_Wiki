@@ -10,7 +10,7 @@ class Character {
     required this.description,
   });
 
-  static loadFromName(String name) async {
+  static Future<Character> loadFromName(String name) async {
     final file = await rootBundle.loadString('characters/$name/info.yaml');
     final info = loadYaml(file);
 
@@ -18,5 +18,12 @@ class Character {
       name: info['name'],
       description: info['description'],
     );
+  }
+
+  static Future<List<String>> getList() async {
+    final file = await rootBundle.loadString('characters/characters.yaml');
+    final info = loadYaml(file);
+
+    return info['list'];
   }
 }
