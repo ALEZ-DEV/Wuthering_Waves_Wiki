@@ -14,7 +14,32 @@ class Theme {
     }
   }
 
-  static final light = ThemeData(
+  static ThemeData get currentTheme {
+    if (_currentMode == ThemeMode.dark) {
+      return dark;
+    }
+    return light;
+  }
+
+  //only edit for non-color related thing, this theme will impact the light and dark theme
+  static final _baseTheme = ThemeData(
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(
+        fontSize: 72,
+        color: Colors.white,
+      ),
+      bodyMedium: TextStyle(
+        fontSize: 30,
+        color: Colors.white,
+      ),
+      bodySmall: TextStyle(
+        fontSize: 24,
+        color: Colors.white,
+      ),
+    ),
+  );
+
+  static final light = _baseTheme.copyWith(
     colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFFC4AC7D),
       brightness: Brightness.light,
@@ -22,25 +47,9 @@ class Theme {
     navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: Color(0xFFC4AC7D),
     ),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(
-        color: Colors.white,
-      ),
-      bodyMedium: TextStyle(
-        color: Colors.white,
-      ),
-      bodySmall: TextStyle(
-        color: Colors.white,
-      ),
-    ),
-    textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: Colors.yellow,
-      selectionColor: Colors.green,
-      selectionHandleColor: Colors.blue,
-    ),
   );
 
-  static final dark = ThemeData(
+  static final dark = _baseTheme.copyWith(
     colorScheme: ColorScheme.fromSeed(
       seedColor: const Color(0xFF3B3426),
       brightness: Brightness.dark,
@@ -48,21 +57,11 @@ class Theme {
     navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: Color(0xFF3B3426),
     ),
-    textTheme: const TextTheme(
-      bodyLarge: TextStyle(
-        color: Colors.white,
-      ),
-      bodyMedium: TextStyle(
-        color: Colors.white,
-      ),
-      bodySmall: TextStyle(
-        color: Colors.white,
-      ),
-    ),
-    textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: Colors.yellow,
-      selectionColor: Colors.green,
-      selectionHandleColor: Colors.blue,
-    ),
   );
+}
+
+class Style {
+  static final bodyLarge = Theme.currentTheme.textTheme.bodyLarge;
+  static final bodyMedium = Theme.currentTheme.textTheme.bodyMedium;
+  static final bodySmall = Theme.currentTheme.textTheme.bodySmall;
 }
