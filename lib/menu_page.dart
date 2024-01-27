@@ -90,7 +90,7 @@ class _MenuDesktopPageState extends State<MenuDesktopPage> {
               selectedIndex: widget.selectedPage,
               onDestinationSelected: (int index) {
                 if (widget.allRoutes[index] == '/characters/:name') {
-                  context.go('/characters/test');
+                  context.go('/characters/yinlin');
                   return;
                 }
                 context.go(widget.allRoutes[index]);
@@ -152,7 +152,7 @@ class _MenuMobilePageState extends State<MenuMobilePage> {
           selectedIndex: widget.selectedPage,
           onDestinationSelected: (int index) {
             if (widget.allRoutes[index] == '/characters/:name') {
-              context.go('/characters/test');
+              context.go('/characters/yinlin');
               return;
             }
             context.go(widget.allRoutes[index]);
