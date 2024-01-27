@@ -12,6 +12,7 @@ class Routing {
   ];
 
   static final router = GoRouter(
+    initialLocation: '/',
     routes: [
       ShellRoute(
         routes: [

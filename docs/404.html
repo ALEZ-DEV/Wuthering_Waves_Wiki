@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+</head>
+<body>
+<script>
+    window.addEventListener('load', function () {
+      const path = window.location.pathname;
+
+      const basePath = '/';
+
+      if (path === basePath) {
+        window.location.replace('/');
+      } else {
+        window.location.replace(path);
+      }
+    });
+  </script>
+</body>
+</html>
