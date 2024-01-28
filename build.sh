@@ -1,0 +1,1 @@
+flutter build web --release --base-href /Wuthering_Waves_Wiki/

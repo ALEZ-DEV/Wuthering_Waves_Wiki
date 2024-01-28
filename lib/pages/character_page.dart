@@ -165,6 +165,40 @@ class CharacterPageMobile extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         const Divider(),
+        Container(
+          height: 600,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: character.getImagePathOf(
+                character.presentation_img,
+              ),
+              fit: BoxFit.fitHeight,
+            ),
+          ),
+        ),
+        Container(
+          height: 600,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.red,
+              width: 2,
+            ),
+          ),
+          child: Center(
+            child: SelectableText(
+              'Add any info here',
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ),
+        ),
+        SelectableText(
+          'Video demo',
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        const Divider(),
+        VideoPlayer(
+          url: character.videoDemoUrl,
+        ),
       ],
     );
   }
