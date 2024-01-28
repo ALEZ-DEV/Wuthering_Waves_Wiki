@@ -69,6 +69,18 @@ flutter:
     - assets/images/wutheringwaves_gallery4.jpg
     # all info character related
     - assets/characters/
+    - assets/characters/anke/
+    - assets/characters/chixia/
+    - assets/characters/danjin/
+    - assets/characters/jiyan/
+    - assets/characters/rover/
+    - assets/characters/yangyang/
+    - assets/characters/anke/images/
+    - assets/characters/chixia/images/
+    - assets/characters/danjin/images/
+    - assets/characters/jiyan/images/
+    - assets/characters/rover/images/
+    - assets/characters/yangyang/images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
