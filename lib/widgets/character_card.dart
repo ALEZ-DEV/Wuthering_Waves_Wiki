@@ -28,9 +28,7 @@ class CharacterCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25.0),
                   image: DecorationImage(
-                    image: AssetImage(
-                      character.getImagePathOf(character.profile_img),
-                    ),
+                    image: character.getImagePathOf(character.profile_img),
                     fit: BoxFit.fitHeight,
                   ),
                   gradient: LinearGradient(

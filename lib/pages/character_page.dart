@@ -99,10 +99,8 @@ class CharacterPageDesktop extends StatelessWidget {
                 height: 600,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                      character.getImagePathOf(
-                        character.presentation_img,
-                      ),
+                    image: character.getImagePathOf(
+                      character.presentation_img,
                     ),
                     fit: MediaQuery.of(context).size.width > 1400
                         ? BoxFit.fitHeight

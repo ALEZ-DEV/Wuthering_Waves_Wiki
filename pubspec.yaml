@@ -38,6 +38,7 @@ dependencies:
   go_router: ^13.0.1
   yaml: ^3.1.2
   youtube_player_iframe: ^4.0.4
+  http: ^1.2.0
 
 dev_dependencies:
   flutter_test:

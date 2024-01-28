@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart';
 import 'package:yaml/yaml.dart';
 
 class Character {
@@ -25,8 +28,21 @@ class Character {
   });
 
   static Future<Character> loadFromName(String name) async {
-    final file = await rootBundle.loadString('characters/$name/info.yaml');
-    final info = loadYaml(file);
+    late String asset;
+    if (kReleaseMode) {
+      final client = Client();
+      final response = await client.get(
+        Uri.parse(
+          'https://raw.githubusercontent.com/ALEZ-DEV/Wuthering_Waves_Wiki/master/docs/assets/assets/characters/$name/info.yaml',
+        ),
+      );
+
+      asset = response.body;
+    } else {
+      asset = await rootBundle.loadString('characters/$name/info.yaml');
+    }
+
+    final info = loadYaml(asset);
 
     return Character(
       name: info['name'],
@@ -40,8 +56,22 @@ class Character {
   }
 
   static Future<List<Character>> getList() async {
-    final file = await rootBundle.loadString('characters/characters.yaml');
-    final info = loadYaml(file);
+    late String asset;
+
+    if (kReleaseMode) {
+      final client = Client();
+      final response = await client.get(
+        Uri.parse(
+          'https://raw.githubusercontent.com/ALEZ-DEV/Wuthering_Waves_Wiki/master/docs/assets/assets/characters/characters.yaml',
+        ),
+      );
+
+      asset = response.body;
+    } else {
+      asset = await rootBundle.loadString('characters/characters.yaml');
+    }
+
+    final info = loadYaml(asset);
     final strList = (info['list'] as YamlList).map((e) => e as String).toList();
     final list =
         Future.wait(strList.map((e) => Character.loadFromName(e)).toList());
@@ -51,7 +81,15 @@ class Character {
 
   bool get isFiveStar => star == 5;
 
-  String getImagePathOf(String imageName) {
-    return 'characters/${rawName}/images/${imageName}';
+  ImageProvider<Object> getImagePathOf(String imageName) {
+    if (kReleaseMode) {
+      return NetworkImage(
+        'https://raw.githubusercontent.com/ALEZ-DEV/Wuthering_Waves_Wiki/master/docs/assets/assets/characters/$rawName/images/${imageName}',
+      );
+    } else {
+      return AssetImage(
+        'characters/$rawName/images/${imageName}',
+      );
+    }
   }
 }
