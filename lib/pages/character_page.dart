@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils.dart';
 import './../models/character.dart';
+import './../widgets/video_player.dart';
 
 import './base_page.dart';
 
@@ -136,6 +137,13 @@ class CharacterPageDesktop extends StatelessWidget {
           textAlign: TextAlign.start,
         ),
         const Divider(),
+        Padding(
+          padding:
+              const EdgeInsets.symmetric(horizontal: 150.0, vertical: 20.0),
+          child: VideoPlayer(
+            url: character.videoDemoUrl,
+          ),
+        ),
       ],
     );
   }

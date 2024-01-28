@@ -11,6 +11,9 @@ class Character {
   final String profile_img;
   final String presentation_img;
 
+  //video
+  final String videoDemoUrl;
+
   Character({
     required this.name,
     required this.rawName,
@@ -18,6 +21,7 @@ class Character {
     required this.star,
     required this.profile_img,
     required this.presentation_img,
+    required this.videoDemoUrl,
   });
 
   static Future<Character> loadFromName(String name) async {
@@ -31,6 +35,7 @@ class Character {
       star: info['star'],
       profile_img: info['images']['profile'],
       presentation_img: info['images']['presentation'],
+      videoDemoUrl: info['video_demo'],
     );
   }
 

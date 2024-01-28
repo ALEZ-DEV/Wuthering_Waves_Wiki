@@ -4,3 +4,5 @@ star: 4
 images:
   profile: "profile.png"
   presentation: "presentation.png"
+video_demo: "https://www.youtube.com/watch?v=K0P7LzkY_0E"
+#video_demo: "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4"
