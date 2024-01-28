@@ -89,10 +89,6 @@ class _MenuDesktopPageState extends State<MenuDesktopPage> {
             NavigationRail(
               selectedIndex: widget.selectedPage,
               onDestinationSelected: (int index) {
-                if (widget.allRoutes[index] == '/characters/:name') {
-                  context.go('/characters/yinlin');
-                  return;
-                }
                 context.go(widget.allRoutes[index]);
               },
               destinations: [
@@ -151,10 +147,6 @@ class _MenuMobilePageState extends State<MenuMobilePage> {
         NavigationBar(
           selectedIndex: widget.selectedPage,
           onDestinationSelected: (int index) {
-            if (widget.allRoutes[index] == '/characters/:name') {
-              context.go('/characters/yinlin');
-              return;
-            }
             context.go(widget.allRoutes[index]);
           },
           destinations: [
