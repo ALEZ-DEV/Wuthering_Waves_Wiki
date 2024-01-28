@@ -9,6 +9,7 @@ class Character {
 
   //images path
   final String profile_img;
+  final String presentation_img;
 
   Character({
     required this.name,
@@ -16,6 +17,7 @@ class Character {
     required this.description,
     required this.star,
     required this.profile_img,
+    required this.presentation_img,
   });
 
   static Future<Character> loadFromName(String name) async {
@@ -28,6 +30,7 @@ class Character {
       description: info['description'],
       star: info['star'],
       profile_img: info['images']['profile'],
+      presentation_img: info['images']['presentation'],
     );
   }
 
@@ -42,4 +45,8 @@ class Character {
   }
 
   bool get isFiveStar => star == 5;
+
+  String getImagePathOf(String imageName) {
+    return 'characters/${rawName}/images/${imageName}';
+  }
 }

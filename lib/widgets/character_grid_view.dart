@@ -47,6 +47,7 @@ class _CharacterGridViewState extends State<CharacterGridView> {
             itemCount: characterList.length,
             itemBuilder: (context, index) => CharacterCard(
               character: characterList[index],
+              canClick: true,
             ),
           );
   }

@@ -6,10 +6,12 @@ import './../models/character.dart';
 class CharacterCard extends StatelessWidget {
   const CharacterCard({
     required this.character,
+    required this.canClick,
     super.key,
   });
 
   final Character character;
+  final bool canClick;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,15 @@ class CharacterCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              onTap: () => context.go('/characters/${character.rawName}'),
+              onTap: canClick
+                  ? () => context.go('/characters/${character.rawName}')
+                  : null,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25.0),
                   image: DecorationImage(
                     image: AssetImage(
-                      'characters/${character.rawName}/images/${character.profile_img}',
+                      character.getImagePathOf(character.profile_img),
                     ),
                     fit: BoxFit.fitHeight,
                   ),

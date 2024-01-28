@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './base_page.dart';
+import '../utils.dart';
 import './../models/character.dart';
+
+import './base_page.dart';
 
 class CharacterPage extends StatefulWidget {
   const CharacterPage({
@@ -57,11 +59,106 @@ class _CharacterPageState extends State<CharacterPage> {
                       child: SelectableText(
                           'Failed to get info of the character, check the character name please'),
                     )
-                  : Center(
-                      child: SelectableText(
-                        character.name,
+                  : Utils.isMobileDevice(context)
+                      ? CharacterPageMobile(character: character)
+                      : CharacterPageDesktop(character: character),
+    );
+  }
+}
+
+class CharacterPageDesktop extends StatelessWidget {
+  const CharacterPageDesktop({
+    required this.character,
+    super.key,
+  });
+
+  final Character character;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: double.infinity,
+          child: SelectableText(
+            character.name,
+            style: Theme.of(context).textTheme.bodyLarge,
+            textAlign: TextAlign.center,
+          ),
+        ),
+        const Divider(),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
+                height: 600,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      character.getImagePathOf(
+                        character.presentation_img,
                       ),
                     ),
+                    fit: MediaQuery.of(context).size.width > 1400
+                        ? BoxFit.fitHeight
+                        : BoxFit.fitWidth,
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                height: 600,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.red,
+                    width: 2,
+                  ),
+                ),
+                child: Center(
+                  child: SelectableText(
+                    'Add any info here',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        SelectableText(
+          'Video demo',
+          style: Theme.of(context).textTheme.bodyMedium,
+          textAlign: TextAlign.start,
+        ),
+        const Divider(),
+      ],
+    );
+  }
+}
+
+class CharacterPageMobile extends StatelessWidget {
+  const CharacterPageMobile({
+    required this.character,
+    super.key,
+  });
+
+  final Character character;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SelectableText(
+          character.name,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        const Divider(),
+      ],
     );
   }
 }
