@@ -35,23 +35,18 @@ class _CharacterGridViewState extends State<CharacterGridView> {
         ? const Center(
             child: CircularProgressIndicator(),
           )
-        : Padding(
-            padding: Utils.isMobileDevice(context)
-                ? const EdgeInsets.symmetric(horizontal: 8.0)
-                : const EdgeInsets.symmetric(horizontal: 50.0),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: Utils.isMobileDevice(context) ? 2 : 5,
-                crossAxisSpacing: 8.0,
-                mainAxisSpacing: 8.0,
-                childAspectRatio: 0.5,
-              ),
-              itemCount: characterList.length,
-              itemBuilder: (context, index) => CharacterCard(
-                character: characterList[index],
-              ),
+        : GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: Utils.isMobileDevice(context) ? 2 : 5,
+              crossAxisSpacing: 8.0,
+              mainAxisSpacing: 8.0,
+              childAspectRatio: 0.5,
+            ),
+            itemCount: characterList.length,
+            itemBuilder: (context, index) => CharacterCard(
+              character: characterList[index],
             ),
           );
   }

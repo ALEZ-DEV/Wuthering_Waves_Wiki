@@ -17,9 +17,10 @@ class IndexPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SelectableText(
-            'Welcome the to Wuthering Waves Wiki !',
+            'Wuthering Waves Wiki',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
+          const Divider(),
           const CharacterGridView(),
         ],
       ),

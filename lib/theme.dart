@@ -25,16 +25,13 @@ class Theme {
   static final _baseTheme = ThemeData(
     textTheme: const TextTheme(
       bodyLarge: TextStyle(
-        fontSize: 72,
-        color: Colors.white,
+        fontSize: 48,
       ),
       bodyMedium: TextStyle(
         fontSize: 30,
-        color: Colors.white,
       ),
       bodySmall: TextStyle(
         fontSize: 24,
-        color: Colors.white,
       ),
     ),
   );
@@ -47,6 +44,17 @@ class Theme {
     navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: Color(0xFFC4AC7D),
     ),
+    textTheme: _baseTheme.textTheme.copyWith(
+      bodyLarge: _baseTheme.textTheme.bodyLarge!.copyWith(
+        color: Colors.black,
+      ),
+      bodyMedium: _baseTheme.textTheme.bodyMedium!.copyWith(
+        color: Colors.black,
+      ),
+      bodySmall: _baseTheme.textTheme.bodySmall!.copyWith(
+        color: Colors.black,
+      ),
+    ),
   );
 
   static final dark = _baseTheme.copyWith(
@@ -56,6 +64,17 @@ class Theme {
     ),
     navigationRailTheme: const NavigationRailThemeData(
       backgroundColor: Color(0xFF3B3426),
+    ),
+    textTheme: _baseTheme.textTheme.copyWith(
+      bodyLarge: _baseTheme.textTheme.bodyLarge!.copyWith(
+        color: Colors.white,
+      ),
+      bodyMedium: _baseTheme.textTheme.bodyMedium!.copyWith(
+        color: Colors.white,
+      ),
+      bodySmall: _baseTheme.textTheme.bodySmall!.copyWith(
+        color: Colors.white,
+      ),
     ),
   );
 }

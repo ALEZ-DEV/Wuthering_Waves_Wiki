@@ -33,7 +33,9 @@ class BasePage extends StatelessWidget {
                   ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: Utils.isMobileDevice(context)
+                ? const EdgeInsets.all(15.0)
+                : const EdgeInsets.symmetric(horizontal: 150.0, vertical: 15.0),
             child: child,
           ),
         ),
