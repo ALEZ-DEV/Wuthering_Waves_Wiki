@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './../widgets/character_grid_view.dart';
+
 import 'base_page.dart';
 
 class IndexPage extends StatelessWidget {
@@ -10,15 +12,16 @@ class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
-      child: Center(
-        child: Column(
-          children: [
-            SelectableText(
-              'Welcome the to Wuthering Waves Wiki !',
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SelectableText(
+            'Welcome the to Wuthering Waves Wiki !',
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          const CharacterGridView(),
+        ],
       ),
     );
   }
