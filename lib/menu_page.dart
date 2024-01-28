@@ -87,22 +87,19 @@ class _MenuDesktopPageState extends State<MenuDesktopPage> {
         Row(
           children: [
             NavigationRail(
+              labelType: NavigationRailLabelType.all,
               selectedIndex: widget.selectedPage,
               onDestinationSelected: (int index) {
-                if (widget.allRoutes[index] == '/characters/:name') {
-                  context.go('/characters/test');
-                  return;
-                }
                 context.go(widget.allRoutes[index]);
               },
               destinations: [
                 const NavigationRailDestination(
-                  icon: Icon(Icons.abc),
-                  label: Text('index page'),
+                  icon: Icon(Icons.home),
+                  label: Text('Home'),
                 ),
                 const NavigationRailDestination(
-                  icon: Icon(Icons.abc),
-                  label: Text('character page'),
+                  icon: Icon(Icons.gif_box),
+                  label: Text('Characters'),
                 ),
                 if (widget.notHaveSelectedPage)
                   const NavigationRailDestination(
@@ -151,20 +148,16 @@ class _MenuMobilePageState extends State<MenuMobilePage> {
         NavigationBar(
           selectedIndex: widget.selectedPage,
           onDestinationSelected: (int index) {
-            if (widget.allRoutes[index] == '/characters/:name') {
-              context.go('/characters/test');
-              return;
-            }
             context.go(widget.allRoutes[index]);
           },
           destinations: [
             const NavigationDestination(
-              icon: Icon(Icons.abc),
-              label: 'index page',
+              icon: Icon(Icons.home),
+              label: 'Home',
             ),
             const NavigationDestination(
-              icon: Icon(Icons.abc),
-              label: 'character page',
+              icon: Icon(Icons.gif_box),
+              label: 'Characters',
             ),
             if (widget.notHaveSelectedPage)
               const NavigationDestination(

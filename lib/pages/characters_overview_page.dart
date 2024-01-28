@@ -4,10 +4,10 @@ import './../widgets/character_grid_view.dart';
 
 import 'base_page.dart';
 
-class IndexPage extends StatelessWidget {
-  const IndexPage({super.key});
+class CharactersOverviewPage extends StatelessWidget {
+  const CharactersOverviewPage({super.key});
 
-  static const route = '/';
+  static const route = '/characters';
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class IndexPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SelectableText(
-            'Wuthering Waves Wiki',
+            'Characters overview',
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           const Divider(),

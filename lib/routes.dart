@@ -4,11 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'menu_page.dart';
 import './pages/index_page.dart';
 import './pages/character_page.dart';
+import './pages/characters_overview_page.dart';
 
 class Routing {
   static const allRoutes = [
     IndexPage.route,
-    CharacterPage.route,
+    CharactersOverviewPage.route,
   ];
 
   static final router = GoRouter(
@@ -34,6 +35,14 @@ class Routing {
               ),
             ),
           ),
+          GoRoute(
+            path: CharactersOverviewPage.route,
+            pageBuilder: (context, state) => buildPage(
+              context,
+              state,
+              const CharactersOverviewPage(),
+            ),
+          )
         ],
         builder: (context, state, child) => MenuPage(
           uri: state.uri,
