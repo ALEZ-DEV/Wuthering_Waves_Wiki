@@ -27,6 +27,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
         loop: true,
         mute: false,
         showControls: true,
+        showFullscreenButton: true,
       ),
     );
   }

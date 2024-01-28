@@ -111,6 +111,7 @@ class CharacterPageDesktop extends StatelessWidget {
                 ),
               ),
             ),
+            const VerticalDivider(),
             Expanded(
               flex: 3,
               child: Container(
